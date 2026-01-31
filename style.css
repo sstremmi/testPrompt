@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.blueBox{
+    background: #00f;
+    color: #fff;
+    border-radius: 45px;
+    padding: 10px 30px;
+}
+.blueBox h1{
+    font-size: 150px;
+}
+
+#welcomeBody{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+a{
+    text-decoration: none;
+    user-select: none;
+}
+
+#beginBody{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#beginBody .text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+#beginBody .text .paragraph{
+    margin: 50px;
+}
+#beginBody .text .paragraph p{
+    font-size: 100px;
+    text-align: center;
+}
+
+#emotionBody{
+    width: 100vw;
+    height: 100vh;
+    background: url(assets/body.png);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 0;
+}
+#emotionBody .prompt{
+    font-size: 60px;
+    user-select: none;
+}
+
+.spark{
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    transform: translate(80px);
+    border-radius: 50%;
+    animation: animate .5s ease-in-out forwards;
+}
+@keyframes animate{
+    0%{
+        transform: translate(-40px, -40px) scale(0);
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        transform: translate(-40px, -40px) scale(1.1);
+        opacity: 0;
+    }
+
+}
