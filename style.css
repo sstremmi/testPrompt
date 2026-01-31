@@ -12,15 +12,15 @@
     padding: 10px 30px;
 }
 .blueBox h1{
-    font-size: 150px;
+    font-size: 100px;
 }
 
 #welcomeBody{
-    width: 100vw;
-    height: 100vh;
+    height: 100dvh;
+    width: 100dvw;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }
 a{
     text-decoration: none;
@@ -28,8 +28,8 @@ a{
 }
 
 #beginBody{
-    width: 100vw;
-    height: 100vh;
+    width: 100dvw;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,14 +46,13 @@ a{
     margin: 50px;
 }
 #beginBody .text .paragraph p{
-    font-size: 100px;
+    font-size: 50px;
     text-align: center;
 }
 
 #emotionBody{
-    width: 100vw;
-    height: 100vh;
-    background: url(assets/body.png);
+    width: 100dvw;
+    height: 100dvh;
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -62,7 +61,7 @@ a{
     padding: 50px 0;
 }
 #emotionBody .prompt{
-    font-size: 60px;
+    font-size: 40px;
     user-select: none;
 }
 
