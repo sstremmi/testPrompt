@@ -60,6 +60,7 @@ a{
     width: 100vw;
     min-height: 100vh;
     min-height: 100dvh;
+    background: url(assets/body.png);
     background-size: contain;
     background-position: center center;
     display: flex;
