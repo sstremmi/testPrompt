@@ -1,8 +1,15 @@
+@font-face {
+  font-family: 'eina';
+  src: url('assets/2d57f676e3d6955778fb8acac0176b9a.woff') format('woff'),
+       url('assets/2d57f676e3d6955778fb8acac0176b9a.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: eina, Arial, sans-serif;
 }
 html, body {
   height: 100%;
