@@ -4,15 +4,21 @@
     box-sizing: border-box;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+html, body {
+  height: 100%;
+}
+body{
+     -webkit-text-size-adjust: 100%;
+}
 
 .blueBox{
     background: #00f;
     color: #fff;
-    border-radius: 45px;
+    border-radius: 40px;
     padding: 10px 30px;
 }
 .blueBox h1{
-    font-size: 100px;
+    font-size: 70px;
 }
 
 #welcomeBody{
@@ -43,7 +49,7 @@ a{
     margin-bottom: 50px;
 }
 #beginBody .text .paragraph{
-    margin: 50px;
+    margin: 30px;
 }
 #beginBody .text .paragraph p{
     font-size: 50px;
@@ -51,18 +57,19 @@ a{
 }
 
 #emotionBody{
-    width: 100;
+    width: 100vw;
+    min-height: 100vh;
     min-height: 100dvh;
-    background-size: cover;
-    background-position: center;
+    background-size: contain;
+    background-position: center center;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 50px 0;
+    padding: 40px 0;
 }
 #emotionBody .prompt{
-    font-size: 40px;
+    font-size: 30px;
     user-select: none;
 }
 
