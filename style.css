@@ -82,6 +82,14 @@ a{
     text-align: center;
 }
 
+#kioskBody{
+    width: 100vw;
+    height: 100vh;
+    background: url(assets/body\ mask_1.gif);
+    background-size: contain;
+    background-position: center;
+}
+
 .spark{
     position: absolute;
     width: 80px;
@@ -93,9 +101,9 @@ a{
 
 .perma-spark{
     position: absolute;
-    width: 80px;
-    height: 80px;
-    transform: translate(80px);
+    width: 20px;
+    height: 20px;
+    transform: translate(20px);
     border-radius: 50%;
     animation: perma-animate .5s ease-in-out forwards;
 }

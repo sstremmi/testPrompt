@@ -8,7 +8,12 @@ ws.onopen = () => {
 
 
 let body = document.querySelector('body');
+let hasClicked = false;
+
 body.addEventListener('click', function(event){
+
+    if (hasClicked) return;
+    hasClicked = true;
 
     const emotion = document.querySelector('#emotion').value;
     let spark = document.createElement('div');
