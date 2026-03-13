@@ -25,7 +25,7 @@ body{
     padding: 10px 30px;
 }
 .blueBox h1{
-    font-size: 70px;
+    font-size: 20px;
 }
 
 #welcomeBody{
@@ -59,7 +59,7 @@ a{
     margin: 30px;
 }
 #beginBody .text .paragraph p{
-    font-size: 40px;
+    font-size: 20px;
     text-align: center;
 }
 
@@ -70,6 +70,7 @@ a{
     background: url(assets/body.png);
     background-size: contain;
     background-position: center center;
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -77,7 +78,7 @@ a{
     padding: 40px 0;
 }
 #emotionBody .prompt{
-    font-size: 30px;
+    font-size: 20px;
     user-select: none;
     text-align: center;
 }
@@ -92,20 +93,21 @@ a{
 
 .spark{
     position: absolute;
-    width: 80px;
-    height: 80px;
-    transform: translate(80px);
+    width: 40px;
+    height: 40px;
+    transform: translate(-40px, -40px);
     border-radius: 50%;
     animation: animate .5s ease-in-out forwards;
 }
 
 .perma-spark{
     position: absolute;
-    width: 20px;
-    height: 20px;
-    transform: translate(20px);
+    width: 30px;
+    height: 30px;
+    transform: translate(30px);
     border-radius: 50%;
     animation: perma-animate .5s ease-in-out forwards;
+    filter: blur(6px);
 }
 @keyframes animate{
     0%{
@@ -125,8 +127,12 @@ a{
         transform: scale(0);
         opacity: 0;
     }
-    100%{
+    90%{
         transform: scale(1.1);
+        opacity: 0.7;
+    }
+    100%{
+        transform: scale(1);
         opacity: 0.7;
     }
 }

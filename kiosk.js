@@ -1,48 +1,78 @@
+// open WebSocket connection to the server
 const ws = new WebSocket('ws://localhost:8080');
 
-// Connection opened
+// log when connection opens
 ws.onopen = () => {
     console.log('Connected to server!');
 };
 
+// defines body
+const body = document.querySelector('body');
 
-let body = document.querySelector('body');
+// function to create a spark on the page
+function createSpark(data) {
+    const spark = document.createElement('div');
+    spark.classList.add('perma-spark');
 
+    // size and position
+    const sparkSize = 30;
+    spark.style.position = 'absolute';
+    spark.style.width = sparkSize + 'px';
+    spark.style.height = sparkSize + 'px';
+    spark.style.borderRadius = '50%';
+    spark.style.pointerEvents = 'none'; // prevents interfering with clicks
+
+    // set color based on emotion
+    switch (data.emotion) {
+        case 'joy':
+            spark.style.background = "radial-gradient(circle, rgba(255,255,0,.6) 0%, rgba(255,255,0,.4) 40%, rgba(255,255,0,0) 70%)";
+            break;
+        case 'grief':
+            spark.style.background = "radial-gradient(rgba(0,0,255,.3), rgba(0,0,255,.1))";
+            break;
+        case 'stress':
+            spark.style.background = "radial-gradient(rgba(255,0,0,.3), rgba(255,0,0,.1))";
+            break;
+        default:
+            spark.style.background = "radial-gradient(rgba(255,0,255,.3), rgba(255,0,255,.1))";
+    }
+
+     // scale 1920x1080 → current body size
+    const x = (data.x / 1920) * window.innerWidth;
+    const y = (data.y / 1080) * window.innerHeight;
+
+    spark.style.left = x + 'px';
+    spark.style.top = y + 'px';
+    spark.style.transform = "translate(-50%, -50%)";
+
+    // adds to page
+    body.appendChild(spark);
+}
+
+// handles messages from the server
 ws.onmessage = (event) => {
-    console.log(event);
-    try{
+    try {
         const data = JSON.parse(event.data);
 
-        const spark = document.createElement('div');
-        spark.classList.add('perma-spark');
-        if (data.emotion === 'joy') {
-            spark.style.background = "radial-gradient(rgba(255, 255, 0, .3), rgba(255, 255, 0, .1))";
-            spark.style.boxShadow = "0 0 10px rgba(255,255,0,.3)"
-        } else if (data.emotion === 'grief') {
-            spark.style.background = "radial-gradient(rgba(0, 0, 255, .3), rgba(0, 0, 255, .1))";
-            spark.style.boxShadow = "0 0 10px rgba(0,0,255,.3)"
-        } else if (data.emotion === 'stress') {
-            spark.style.background = "radial-gradient(rgba(255, 0, 0, .3), rgba(255, 0, 0, .1))";
-            spark.style.boxShadow = "0 0 10px rgba(255,0,0,.3)"
+        // if (touchData.json) is an array, draw all sparks
+        if (Array.isArray(data)) {
+            data.forEach(createSpark);
         } else {
-            spark.style.background = "radial-gradient(rgba(255, 0, 255, .3), rgba(255, 0, 255, .1))";
-            spark.style.boxShadow = "0 0 10px rgba(255,0,255,.3)"
+            // single spark from live update
+            createSpark(data);
         }
-        document.body.appendChild(spark);
 
-        spark.style.top = data.x + 'px';
-        spark.style.left = data.y + 'px';
     } catch (error) {
-        console.log('Error: ' + error.message);
+        console.error('Error parsing server message:', error);
     }
 };
 
-
+// handle errors
 ws.onerror = (error) => {
-    console.log('Error: ' + error.message);
+    console.error('WebSocket error:', error);
 };
 
-// Handle connection close
+// handle connection closed
 ws.onclose = () => {
     console.log('Disconnected from server');
 };
